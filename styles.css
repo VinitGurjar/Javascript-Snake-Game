@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  --font-open-sans: 'open sans', 'sans-serif';
+}
+
 :root {
   --color-blue: hsl(200, 100%, 50%);
   --color-gray: hsl(0, 0%, 80%);
@@ -11,14 +17,13 @@
   --border-black: 0.25vmin solid black;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
-  align-items: center;
-  background-color: black;
-  display: flex;
-  height: 100vh;
-  justify-content: center;
+  font-family: var(--font-open-sans);
   margin: 0;
-  width: 100vw;
 }
 
 .game-board {
