@@ -1,0 +1,49 @@
+:root {
+  --color-blue: hsl(200, 100%, 50%);
+  --color-gray: hsl(0, 0%, 80%);
+  --color-yellow: hsl(50, 100%, 50%);
+
+  --color-food: var(--color-yellow);
+  --color-snake: var(--color-blue);
+}
+
+:root {
+  --border-black: 0.25vmin solid black;
+}
+
+body {
+  align-items: center;
+  background-color: black;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  margin: 0;
+  width: 100vw;
+}
+
+.game-board {
+  --grid-size: 21;
+  --grid-template: repeat(var(--grid-size), 1fr);
+  --size: 100vmin;
+
+  background: var(--color-gray);
+  display: grid;
+  grid-template-columns: var(--grid-template);
+  grid-template-rows: var(--grid-template);
+  height: var(--size);
+  width: var(--size);
+}
+
+.snake,
+.food {
+  border: var(--border-black);
+}
+
+.snake {
+  background: var(--color-snake);
+}
+
+.food {
+  background: var(--color-food);
+}
+
