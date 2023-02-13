@@ -39,6 +39,23 @@ body {
   width: var(--size);
 }
 
+.container {
+  display: flex;
+  gap: 2rem;
+}
+
+.side-menu {
+  width: min(90%, 400px);
+}
+
+.scoreboard {
+  margin-top: 3rem;
+}
+
+.scoreboard * {
+  margin: 0;
+}
+
 .snake,
 .food {
   border: var(--border-black);
