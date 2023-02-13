@@ -1,23 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 :root {
-  --font-open-sans: 'open sans', 'sans-serif';
+  --font-open-sans: "open sans", "sans-serif";
 }
 
 :root {
   --color-blue: hsl(200, 100%, 50%);
+  --color-blue-dark: hsl(200, 100%, 40%);
   --color-gray: hsl(0, 0%, 80%);
   --color-yellow: hsl(50, 100%, 50%);
   --color-black-semi-translucent: hsl(0, 0%, 0%, 50%);
-  --color-light-red: hsl(0, 40%, 80%);
-  --color-red: hsl(0, 50%, 50%);
-
-  --color-danger: var(--color-light-red);
-  --color-danger-hover: var(--color-red);
-  --color-on-danger: white;
-
-  --color-food: var(--color-yellow);
-  --color-snake: var(--color-blue);
 }
 
 :root {
@@ -64,67 +56,65 @@ body {
   margin: 0;
 }
 
-.confirm-window,
-.confirm-window-background,
-.confirm-window-foreground {
+.game-over-window,
+.game-over-window-background,
+.game-over-window-foreground {
   position: absolute;
 }
 
-.confirm-window,
-.confirm-window-background {
+.game-over-window,
+.game-over-window-background {
   --size: 100%;
 
   height: var(--size);
   width: var(--size);
 }
 
-.confirm-window-foreground {
-  --size: 90%;
+.game-over-window[data-is-open="false"] {
+  display: none;
+}
 
+.game-over-window-foreground {
   background: white;
   border-radius: var(--border-radius);
-  height: var(--size);
   left: 50%;
   top: 50%;
   translate: -50% -50%;
-  width: var(--size);
+  width: min(90%, 900px);
+  overflow: hidden;
 }
 
-.confirm-window-background {
+.game-over-window-background {
   background: var(--color-black-semi-translucent);
 }
 
-.confirm-window-top {
-  align-items: center;
+.game-over-window-title {
   border-bottom: 1px solid black;
-  display: flex;
-  padding: 0.5rem 0;
-}
-
-.confirm-window-title {
   font-weight: bold;
+  padding: 0.5rem 0;
   text-align: center;
   width: 100%;
 }
 
-.confirm-window-buttons {
-  padding: 0 1rem;
+.game-over-window-body {
+  padding: 1rem 0;
+  text-align: center;
 }
 
-.confirm-window-button {
-  border-radius: 50%;
-  padding: 0.4rem 0.6rem;
+.game-over-window-button {
+  background: var(--color-blue);
+  border: none;
+  color: white;
   cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  transition: background 200ms;
+  width: 100%;
 }
 
-.confirm-window-close-button {
-  background: var(--color-danger);
-  color: var(--color-on-danger);
-  transition: 200ms;
-}
-
-.confirm-window-close-button:hover {
-  background: var(--color-danger-hover);
+.game-over-window-button:hover {
+  background: var(--color-blue-dark);
 }
 
 .snake,
@@ -133,10 +123,10 @@ body {
 }
 
 .snake {
-  background: var(--color-snake);
+  background: var(--color-blue);
 }
 
 .food {
-  background: var(--color-food);
+  background: var(--color-yellow);
 }
 
