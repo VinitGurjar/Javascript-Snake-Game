@@ -5,15 +5,16 @@
 }
 
 :root {
-  --color-blue: hsl(200, 100%, 50%);
+  --color-black-semi-translucent: hsl(0, 0%, 0%, 50%);
   --color-blue-dark: hsl(200, 100%, 40%);
+  --color-blue: hsl(200, 100%, 50%);
   --color-gray: hsl(0, 0%, 80%);
   --color-yellow: hsl(50, 100%, 50%);
-  --color-black-semi-translucent: hsl(0, 0%, 0%, 50%);
 }
 
 :root {
-  --border-black: 0.25vmin solid black;
+  --border-black-thick: 0.25vmin solid black;
+  --border-black-thin: 1px solid black;
   --border-radius: 10px;
 }
 
@@ -78,27 +79,30 @@ body {
   background: white;
   border-radius: var(--border-radius);
   left: 50%;
+  overflow: hidden;
   top: 50%;
   translate: -50% -50%;
   width: min(90%, 900px);
-  overflow: hidden;
 }
 
 .game-over-window-background {
   background: var(--color-black-semi-translucent);
 }
 
+.game-over-window-title,
+.game-over-window-body {
+  text-align: center;
+}
+
 .game-over-window-title {
-  border-bottom: 1px solid black;
+  border-bottom: var(--border-black-thin);
   font-weight: bold;
   padding: 0.5rem 0;
-  text-align: center;
   width: 100%;
 }
 
 .game-over-window-body {
   padding: 1rem 0;
-  text-align: center;
 }
 
 .game-over-window-button {
@@ -119,7 +123,7 @@ body {
 
 .snake,
 .food {
-  border: var(--border-black);
+  border: var(--border-black-thick);
 }
 
 .snake {
