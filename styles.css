@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+  --font-open-sans: "open sans", "sans-serif";
+}
+
+:root {
+  --color-black-semi-translucent: hsl(0, 0%, 0%, 50%);
+  --color-blue-dark: hsl(200, 100%, 40%);
+  --color-blue: hsl(200, 100%, 50%);
+  --color-gray: hsl(0, 0%, 80%);
+  --color-yellow: hsl(50, 100%, 50%);
+}
+
+:root {
+  --border-black-thick: 0.25vmin solid black;
+  --border-black-thin: 1px solid black;
+  --border-radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-open-sans);
+  margin: 0;
+}
+
+.game-board {
+  --grid-size: 21;
+  --grid-template: repeat(var(--grid-size), 1fr);
+  --size: 100vmin;
+
+  background: var(--color-gray);
+  display: grid;
+  grid-template-columns: var(--grid-template);
+  grid-template-rows: var(--grid-template);
+  height: var(--size);
+  width: var(--size);
+}
+
+.container {
+  display: flex;
+  gap: 2rem;
+}
+
+.side-menu {
+  width: min(90%, 400px);
+}
+
+.scoreboard {
+  margin-top: 3rem;
+}
+
+.scoreboard * {
+  margin: 0;
+}
+
+.game-over-window,
+.game-over-window-background,
+.game-over-window-foreground {
+  position: absolute;
+}
+
+.game-over-window,
+.game-over-window-background {
+  --size: 100%;
+
+  height: var(--size);
+  width: var(--size);
+}
+
+.game-over-window[data-is-open="false"] {
+  display: none;
+}
+
+.game-over-window-foreground {
+  background: white;
+  border-radius: var(--border-radius);
+  left: 50%;
+  overflow: hidden;
+  top: 50%;
+  translate: -50% -50%;
+  width: min(90%, 900px);
+}
+
+.game-over-window-background {
+  background: var(--color-black-semi-translucent);
+}
+
+.game-over-window-title,
+.game-over-window-body {
+  text-align: center;
+}
+
+.game-over-window-title {
+  border-bottom: var(--border-black-thin);
+  font-weight: bold;
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+.game-over-window-body {
+  padding: 1rem 0;
+}
+
+.game-over-window-button {
+  background: var(--color-blue);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  transition: background 200ms;
+  width: 100%;
+}
+
+.game-over-window-button:hover {
+  background: var(--color-blue-dark);
+}
+
+.snake,
+.food {
+  border: var(--border-black-thick);
+}
+
+.snake {
+  background: var(--color-blue);
+}
+
+.food {
+  background: var(--color-yellow);
+}
+

@@ -2,21 +2,33 @@ import {
   update as updateSnake,
   draw as drawSnake,
   SNAKE_SPEED,
+  snakeBody,
   getSnakeHead,
   snakeIntersection,
 } from "./snake.js";
 import { update as updateFood, draw as drawFood } from "./food.js";
 import { outsideGrid } from "./grid.js";
+import { openGameOverWindow } from "./game_over_window.js";
 
 let lastRenderTime = 0;
 let gameOver = false;
 const gameBoard = document.getElementById("game-board");
+const highestScore = document.getElementById("highest-score");
+
+function getHighestScore() {
+  return + localStorage.getItem("highestScore") || 0;
+}
+
+function restoreHighestScore() {
+  highestScore.innerHTML = getHighestScore();
+}
 
 function main(currentTime) {
   if (gameOver) {
-    if (confirm("You lost. Press ok to restart.")) {
-      window.location = "/";
+    if (snakeBody.length > getHighestScore()) {
+      localStorage.setItem("highestScore", snakeBody.length);
     }
+    openGameOverWindow(snakeBody.length);
     return;
   }
 
@@ -30,6 +42,7 @@ function main(currentTime) {
   draw();
 }
 
+restoreHighestScore();
 window.requestAnimationFrame(main);
 
 function update() {
